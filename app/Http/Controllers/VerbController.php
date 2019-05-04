@@ -78,9 +78,10 @@ class VerbController extends Controller
      * @param  \App\Verb  $verb
      * @return \Illuminate\Http\Response
      */
-    public function update(Verb $verb)
+    public function update(Request $request)
     {
-        $verb->update(request(['verb','translation']));
+        $validated = $request->validate($this->rules);
+        $verb->update($validated);
 
         return redirect('/verbs');
     }
