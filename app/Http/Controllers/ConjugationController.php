@@ -2,17 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Verb;
+use App\Conjugation;
 use Illuminate\Http\Request;
 
-class VerbController extends Controller
+class ConjugationController extends Controller
 {
-
-    private $rules = [
-        'verb' => ['required', 'min:2', 'alpha'],
-        'translation' => ['required', 'min:2', 'alpha']
-    ];
-
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +14,7 @@ class VerbController extends Controller
      */
     public function index()
     {
-        $verbs = Verb::all();
-        return View('verbs.index', compact('verbs'));
+        //
     }
 
     /**
@@ -31,7 +24,7 @@ class VerbController extends Controller
      */
     public function create()
     {
-        return View('verbs.create');
+        //
     }
 
     /**
@@ -42,59 +35,51 @@ class VerbController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate($this->rules);
-
-        Verb::create($validated);
-        
-        return redirect('/verbs');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Verb  $verb
+     * @param  \App\Conjugation  $conjugation
      * @return \Illuminate\Http\Response
      */
-    public function show(Verb $verb)
+    public function show(Conjugation $conjugation)
     {
-        return View('verbs.show', compact('verb'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Verb  $verb
+     * @param  \App\Conjugation  $conjugation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Verb $verb)
+    public function edit(Conjugation $conjugation)
     {
-        return view('verbs.edit', compact('verb'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Conjugation  $conjugation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Conjugation $conjugation)
     {
-        $validated = $request->validate($this->rules);
-        $verb->update($validated);
-
-        return redirect('/verbs');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Verb  $verb
+     * @param  \App\Conjugation  $conjugation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Verb $verb)
+    public function destroy(Conjugation $conjugation)
     {
-        $verb->delete();
-
-        return redirect('/verbs');
+        //
     }
 }

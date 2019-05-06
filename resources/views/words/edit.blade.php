@@ -11,22 +11,22 @@
   </ul>
 </div>
 @endif
-<form method="POST" action="/verbs/{{$verb->id}}">
+<form method="POST" action="/words/{{$word->id}}">
   @csrf
   @method('PATCH')
   <div class="form-group  ">
-    <label for="verb">Verbo</label>
-    <input type="text" class="form-control {{ $errors->has('verb') ? 'is-danger' : ''}}" name="verb" id="verb"
-      value="{{$verb->verb}}" placeholder="Ingrese verbo en portugués" required>
+    <label for="word">Verbo</label>
+    <input type="text" class="form-control {{ $errors->has('word') ? 'is-danger' : ''}}" name="word" id="word"
+      value="{{$word->word}}" placeholder="Ingrese verbo en portugués" required>
   </div>
   <div class="form-group">
     <label for="translation">Traducción</label>
     <input type="text" class="form-control {{ $errors->has('translation') ? 'is-danger' : ''}}" name="translation"
-      id="translation" value="{{$verb->translation}}" placeholder="Ingrese la traducción en español" required>
+      id="translation" value="{{$word->translation}}" placeholder="Ingrese la traducción en español" required>
   </div>
-  <button type="submit" class="btn btn-primary">Actualizar verbo</button>
+  <button type="submit" class="btn btn-primary">Actualizar wordo</button>
 </form>
-<form method="POST" action="/verbs/{{$verb->id}}">
+<form method="POST" action="/words/{{$word->id}}">
   @csrf
   @method('DELETE')
   <button type="submit" class="btn btn-primary">Eliminar</button>

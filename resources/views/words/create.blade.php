@@ -11,12 +11,12 @@
   </ul>
 </div>
 @endif
-<form method="POST" action="/verbs">
+<form method="POST" action="/words">
   @csrf
   <div class="form-group">
-    <label for="verb">Verbo</label>
-    <input type="text" class="form-control  {{ $errors->has('verb') ? 'is-danger' : ''}}" name="verb" id="verb"
-      placeholder="Ingrese verbo en portugués" value="{{old('verb')}}" required>
+    <label for="word">Verbo</label>
+    <input type="text" class="form-control  {{ $errors->has('word') ? 'is-danger' : ''}}" name="word" id="word"
+      placeholder="Ingrese verbo en portugués" value="{{old('word')}}" required>
   </div>
   <div class="form-group">
     <label for="translation">Traducción</label>

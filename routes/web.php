@@ -11,4 +11,4 @@
 |
 */
 
-Route::resource('verbs', 'VerbController');
+Route::resource('words', 'WordController');
