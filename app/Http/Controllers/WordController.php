@@ -77,10 +77,11 @@ class WordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update($id, Request $request)
     {
         $validated = $request->validate($this->rules);
-        $word->update($validated);
+        $word = Word::find($id);
+        $word->update($request->all());
 
         return redirect('/words');
     }
