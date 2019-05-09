@@ -15,13 +15,18 @@
   @csrf
   <div class="form-group">
     <label for="word">Verbo</label>
-    <input type="text" class="form-control  {{ $errors->has('word') ? 'is-danger' : ''}}" name="word" id="word"
+    <input type="text" class="form-control  {{ $errors->has('word') ? 'is-invalid' : ''}}" name="word" id="word"
       placeholder="Ingrese verbo en portugués" value="{{old('word')}}" required>
   </div>
   <div class="form-group">
     <label for="translation">Traducción</label>
-    <input type="text" class="form-control  {{ $errors->has('translation') ? 'is-danger' : ''}}" name="translation"
+    <input type="text" class="form-control  {{ $errors->has('translation') ? 'is-invalid' : ''}}" name="translation"
       id="translation" placeholder="Ingrese la traducción en español" value="{{old('translation')}}" required>
+  </div>
+  <div class="form-group">
+    <label for="translation">Ejemplo</label>
+    <textarea class="form-control  {{ $errors->has('example') ? 'is-invalid' : ''}}" name="example" id="example"
+      placeholder="Aquí puede ingresar un ejemplo" rows="3">{{old('example')}}</textarea>
   </div>
   <button type="submit" class="btn btn-primary">Agregar verbo</button>
 </form>

@@ -43,8 +43,9 @@ class WordController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate($this->rules);
-        Word::create($validated);
-        
+
+        Word::create($request->all());
+
         return redirect('/words');
     }
 
@@ -56,7 +57,7 @@ class WordController extends Controller
      */
     public function show(Word $word)
     {
-        return View('words.show', compact('words'));
+        return View('words.show', compact('word'));
     }
 
     /**
