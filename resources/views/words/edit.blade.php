@@ -11,7 +11,7 @@
   </ul>
 </div>
 @endif
-<form method="POST" action="/words/{{$word->id}}">
+<form method="POST" action="{{ action('WordController@update', ['id' => $word->id])}}">
   @csrf
   @method('PATCH')
   <div class="form-group  ">
@@ -41,7 +41,7 @@
   </div>
   <button type="submit" class="btn btn-primary">Actualizar verbo</button>
 </form>
-<form method="POST" action="/words/{{$word->id}}">
+<form method="POST" action="{{action('WordController@destroy', ['id' => $word->id])}}">
   @csrf
   @method('DELETE')
   <button type="submit" class="btn btn-primary">Eliminar</button>

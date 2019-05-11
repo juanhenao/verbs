@@ -13,13 +13,14 @@
         @foreach($words as $word)
         <tr>
             <td>
-                <a href="/words/{{$word->id}}">{{ $word->word }}</a>
+                <a href="{{action('WordController@show', ['id' => $word->id])}}">{{ $word->word }}</a>
             </td>
             <td>
                 {{ $word->translation }}
             </td>
             <td>
-                <a class="btn btn-primary" href="/words/{{$word->id}}/edit" role="button">Editar</a>
+                <a class="btn btn-primary" href="{{action('WordController@edit', ['id' => $word->id])}}"
+                    role="button">Editar</a>
             </td>
         </tr>
         @endforeach

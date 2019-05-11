@@ -11,4 +11,4 @@
 |
 */
 
-Route::resource('words', 'WordController');
+Route::resource('/', 'WordController');

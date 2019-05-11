@@ -11,7 +11,7 @@
   </ul>
 </div>
 @endif
-<form method="POST" action="/words">
+<form method="POST" action="{{action('WordController@store')}}">
   @csrf
   <div class="form-group">
     <label for="word">Verbo</label>
@@ -24,7 +24,7 @@
       id="translation" placeholder="Ingrese la traducción en español" value="{{old('translation')}}" required>
   </div>
   <div class="form-group">
-    <label for="type">Traducción</label>
+    <label for="type">Tipo de palabra</label>
     <select class="form-control" name='type_id' id="type_id">
       @foreach ($types as $type)
       <option value="{{$type->id}}">
