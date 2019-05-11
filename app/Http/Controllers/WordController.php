@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Word;
+use App\Type;
 use Illuminate\Http\Request;
 
 class WordController extends Controller
@@ -10,7 +11,8 @@ class WordController extends Controller
 
     private $rules = [
         'word' => ['required', 'min:2', 'alpha'],
-        'translation' => ['required', 'min:2', 'alpha']
+        'translation' => ['required', 'min:2', 'alpha'],
+        'type_id' => ['required', 'integer', 'exists:types,id']
     ];
 
     /**
@@ -31,7 +33,8 @@ class WordController extends Controller
      */
     public function create()
     {
-        return View('words.create');
+        $types = Type::all();
+        return View('words.create', compact('types'));
     }
 
     /**
@@ -68,7 +71,8 @@ class WordController extends Controller
      */
     public function edit(Word $word)
     {
-        return view('words.edit', compact('word'));
+        $types = Type::all();
+        return view('words.edit', compact('word', 'types'));
     }
 
     /**

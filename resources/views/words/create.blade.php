@@ -24,7 +24,17 @@
       id="translation" placeholder="Ingrese la traducción en español" value="{{old('translation')}}" required>
   </div>
   <div class="form-group">
-    <label for="translation">Ejemplo</label>
+    <label for="type">Traducción</label>
+    <select class="form-control" name='type_id' id="type_id">
+      @foreach ($types as $type)
+      <option value="{{$type->id}}">
+        @lang($type->translation)
+      </option>
+      @endforeach
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="example">Ejemplo</label>
     <textarea class="form-control  {{ $errors->has('example') ? 'is-invalid' : ''}}" name="example" id="example"
       placeholder="Aquí puede ingresar un ejemplo" rows="3">{{old('example')}}</textarea>
   </div>

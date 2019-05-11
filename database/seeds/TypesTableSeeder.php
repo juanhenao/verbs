@@ -12,14 +12,14 @@ class TypesTableSeeder extends Seeder
      */
     public function run()
     {
-        Type::create(['description' => 'verb']);
-        Type::create(['description' => 'noun']);
-        Type::create(['description' => 'adjective']);
-        Type::create(['description' => 'adverb']);
-        Type::create(['description' => 'pronoun']);
-        Type::create(['description' => 'preposition']);
-        Type::create(['description' => 'conjunction']);
-        Type::create(['description' => 'determiner']);
-        Type::create(['description' => 'exclamation']);
+        Type::create(['description' => 'verb', 'translation' => 'types.verb']);
+        Type::create(['description' => 'noun', 'translation' => 'types.noun']);
+        Type::create(['description' => 'adjective', 'translation' => 'types.adjective']);
+        Type::create(['description' => 'adverb', 'translation' => 'types.adverb']);
+        Type::create(['description' => 'pronoun', 'translation' => 'types.pronoun']);
+        Type::create(['description' => 'preposition', 'translation' => 'types.preposition']);
+        Type::create(['description' => 'conjunction', 'translation' => 'types.conjunction']);
+        Type::create(['description' => 'determiner', 'translation' => 'types.determiner']);
+        Type::create(['description' => 'exclamation', 'translation' => 'types.exclamation']);
     }
 }
