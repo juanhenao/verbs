@@ -11,4 +11,8 @@
 |
 */
 
-Route::resource('/', 'WordController');
+Route::get('/', function () {
+    return redirect('words');
+});
+
+Route::resource('/words', 'WordController');
