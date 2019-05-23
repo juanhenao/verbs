@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="iconfav.png" type="image/png" sizes="16*16">
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="16*16">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Verbos</title>
@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/words">
-            <img src="../favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="/favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
             Verbos
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
