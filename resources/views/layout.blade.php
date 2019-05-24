@@ -31,6 +31,23 @@
                     <a class="nav-link" href="/words/create">Nuevo</a>
                 </li>
             </ul>
+            @if (Route::has('login'))
+            @auth
+            <a href="{{ url('/home') }}">Home</a>
+            @else
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="{{ route('login') }}" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="nav-link">Register</a>
+                    @endif
+                </li>
+            </ul>
+            @endauth
+        </div>
+        @endif
         </div>
     </nav>
     <div class="container-fluid">

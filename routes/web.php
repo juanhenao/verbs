@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('/words', 'WordController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
