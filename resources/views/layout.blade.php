@@ -8,6 +8,7 @@
     <link rel="icon" href="/favicon.png" type="image/png" sizes="16*16">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Verbos</title>
 </head>
 
@@ -50,7 +51,7 @@
         @endif
         </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid content">
         <div class="row">
             <div class="col-md-12 col-lg-6 offset-lg-3">
                 @yield('content')
