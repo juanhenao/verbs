@@ -15,6 +15,11 @@ class WordController extends Controller
         'type_id' => ['required', 'integer', 'exists:types,id']
     ];
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +52,8 @@ class WordController extends Controller
     {
         $validated = $request->validate($this->rules);
 
-        Word::create($request->all());
+        $validated['user_id'] = auth()->id();
+        Word::create($validated);
 
         return redirect('/words');
     }
@@ -60,6 +66,7 @@ class WordController extends Controller
      */
     public function show(Word $word)
     {
+        //$this->authorize('view', $word);
         return View('words.show', compact('word'));
     }
 
