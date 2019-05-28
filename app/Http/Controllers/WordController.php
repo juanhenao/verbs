@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Word;
 use App\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WordController extends Controller
 {
@@ -27,7 +28,8 @@ class WordController extends Controller
      */
     public function index()
     {
-        $words = Word::all();
+        $words = Word::where('user_id', Auth::id())->get();
+        //dd($words);
         return View('words.index', compact('words'));
     }
 
