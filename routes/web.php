@@ -15,7 +15,7 @@ Route::get('/', function () {
     return redirect('words');
 });
 
-Route::resource('/words', 'WordController')->middleware('can:update,word');
+Route::resource('/words', 'WordController');
 
 Auth::routes();
 

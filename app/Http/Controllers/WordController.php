@@ -66,7 +66,7 @@ class WordController extends Controller
      */
     public function show(Word $word)
     {
-        //$this->authorize('view', $word);
+        $this->authorize('update', $word);
         return View('words.show', compact('word'));
     }
 
@@ -78,6 +78,7 @@ class WordController extends Controller
      */
     public function edit(Word $word)
     {
+        $this->authorize('update', $word);
         $types = Type::all();
         return view('words.edit', compact('word', 'types'));
     }
@@ -90,8 +91,9 @@ class WordController extends Controller
      */
     public function update($id, Request $request)
     {
-        $validated = $request->validate($this->rules);
         $word = Word::find($id);
+        $this->authorize('update', $word);
+        $validated = $request->validate($this->rules);
         $word->update($request->all());
 
         return redirect('/words');
