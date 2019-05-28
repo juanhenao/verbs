@@ -8,6 +8,7 @@
     <link rel="icon" href="/favicon.png" type="image/png" sizes="16*16">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Verbos</title>
 </head>
 
@@ -31,9 +32,44 @@
                     <a class="nav-link" href="/words/create">Nuevo</a>
                 </li>
             </ul>
+
+            <ul class="navbar-nav">
+                @if (Route::has('login'))
+                @auth
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a href="{{ route('login') }}" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="nav-link">Register</a>
+                    @endif
+                </li>
+
+                @endauth
+            </ul>
+        </div>
+        @endif
         </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid content">
         <div class="row">
             <div class="col-md-12 col-lg-6 offset-lg-3">
                 @yield('content')

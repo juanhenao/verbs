@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Word;
 use App\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WordController extends Controller
 {
@@ -15,6 +16,11 @@ class WordController extends Controller
         'type_id' => ['required', 'integer', 'exists:types,id']
     ];
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +28,8 @@ class WordController extends Controller
      */
     public function index()
     {
-        $words = Word::all();
+        $words = Word::where('user_id', Auth::id())->get();
+        //dd($words);
         return View('words.index', compact('words'));
     }
 
@@ -47,7 +54,8 @@ class WordController extends Controller
     {
         $validated = $request->validate($this->rules);
 
-        Word::create($request->all());
+        $validated['user_id'] = auth()->id();
+        Word::create($validated);
 
         return redirect('/words');
     }
@@ -60,6 +68,7 @@ class WordController extends Controller
      */
     public function show(Word $word)
     {
+        $this->authorize('update', $word);
         return View('words.show', compact('word'));
     }
 
@@ -71,6 +80,7 @@ class WordController extends Controller
      */
     public function edit(Word $word)
     {
+        $this->authorize('update', $word);
         $types = Type::all();
         return view('words.edit', compact('word', 'types'));
     }
@@ -83,8 +93,9 @@ class WordController extends Controller
      */
     public function update($id, Request $request)
     {
-        $validated = $request->validate($this->rules);
         $word = Word::find($id);
+        $this->authorize('update', $word);
+        $validated = $request->validate($this->rules);
         $word->update($request->all());
 
         return redirect('/words');
