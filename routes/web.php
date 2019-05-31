@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('/words', 'WordController');
+Route::resource('/collections', 'CollectionController');
 
 Auth::routes();
 

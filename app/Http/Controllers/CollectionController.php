@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CollectionController extends Controller
 {
@@ -14,7 +15,9 @@ class CollectionController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $collections = $user->collections()->get();
+        return View('collections.index', compact('collections'));
     }
 
     /**
