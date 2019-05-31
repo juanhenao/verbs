@@ -16,14 +16,14 @@ class CreateWordsTable extends Migration
         Schema::create('words', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('type_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('collection_id');
             $table->string('word');
             $table->string('translation');
             $table->text('example')->nullable();
             $table->timestamps();
 
             $table->foreign('type_id')->references('id')->on('types');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('collection_id')->references('id')->on('collections');
         });
     }
 
