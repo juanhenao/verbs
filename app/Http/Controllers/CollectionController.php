@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class CollectionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -49,7 +55,8 @@ class CollectionController extends Controller
      */
     public function show(Collection $collection)
     {
-        //
+        $this->authorize('update', $collection);
+        return View('collections.show', compact('collection'));
     }
 
     /**
