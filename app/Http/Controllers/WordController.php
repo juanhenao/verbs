@@ -6,6 +6,8 @@ use App\Word;
 use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Collection;
+use Illuminate\Support\Facades\DB;
 
 class WordController extends Controller
 {
@@ -30,8 +32,13 @@ class WordController extends Controller
      */
     public function index()
     {
-        $words = Word::where('user_id', Auth::id())->get();
-        //dd($words);
+        //$words = Word::where('collection_id', Auth::id())->get();
+        $words = DB::table('words')
+            ->join('collections', 'words.collection_id', 'collections.id')
+            ->join('users', 'collections.user_id', 'users.id')
+            ->select('words.*')
+            ->where('users.id', Auth::id())
+            ->get();
         return View('words.index', compact('words'));
     }
 
@@ -43,7 +50,8 @@ class WordController extends Controller
     public function create()
     {
         $types = Type::all();
-        return View('words.create', compact('types'));
+        $collections = Collection::where('user_id', Auth::id())->get();
+        return View('words.create', compact('types', 'collections'));
     }
 
     /**
