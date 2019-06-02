@@ -13,7 +13,9 @@ class WordController extends Controller
     private $rules = [
         'word' => ['required', 'min:2', 'alpha'],
         'translation' => ['required', 'min:2', 'alpha'],
-        'type_id' => ['required', 'integer', 'exists:types,id']
+        'type_id' => ['required', 'integer', 'exists:types,id'],
+        'collection_id' => ['required'],
+        'example' => ['string', 'nullable']
     ];
 
     public function __construct()
@@ -53,11 +55,9 @@ class WordController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate($this->rules);
-
-        $validated['user_id'] = auth()->id();
         Word::create($validated);
 
-        return redirect('/words');
+        return redirect()->back();
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\User;
+use App\Collection;
 use App\Word;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -19,6 +20,7 @@ class WordPolicy
      */
     public function update(User $user, Word $word)
     {
-        return $user->id == $word->user_id;
+        $collection = Collection::find($word->collection_id);
+        return $user->id == $$collection->user_id;
     }
 }

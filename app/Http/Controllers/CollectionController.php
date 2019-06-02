@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Collection;
+use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,7 +57,8 @@ class CollectionController extends Controller
     public function show(Collection $collection)
     {
         $this->authorize('update', $collection);
-        return View('collections.show', compact('collection'));
+        $types = Type::all();
+        return View('collections.show', compact('collection', 'types'));
     }
 
     /**

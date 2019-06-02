@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect('words');
+    return redirect('collections');
 });
 
 Route::resource('/words', 'WordController');
