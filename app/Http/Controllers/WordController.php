@@ -89,8 +89,9 @@ class WordController extends Controller
     public function edit(Word $word)
     {
         $this->authorize('update', $word);
+        $collections = Collection::where('user_id', Auth::id())->get();
         $types = Type::all();
-        return view('words.edit', compact('word', 'types'));
+        return view('words.edit', compact('word', 'types', 'collections'));
     }
 
     /**
