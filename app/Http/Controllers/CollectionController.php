@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class CollectionController extends Controller
 {
+    private $rules = [
+        'name' => ['required', 'string']
+    ];
 
     public function __construct()
     {
@@ -34,7 +37,7 @@ class CollectionController extends Controller
      */
     public function create()
     {
-        //
+        return View('collections.create');
     }
 
     /**
@@ -45,7 +48,11 @@ class CollectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate($this->rules);
+        $validated['user_id'] = Auth::id();
+        Collection::create($validated);
+
+        return redirect('collections');
     }
 
     /**
@@ -69,7 +76,8 @@ class CollectionController extends Controller
      */
     public function edit(Collection $collection)
     {
-        //
+        $this->authorize('update', $collection);
+        return view('collections.edit', compact('collection'));
     }
 
     /**
@@ -81,7 +89,11 @@ class CollectionController extends Controller
      */
     public function update(Request $request, Collection $collection)
     {
-        //
+        $this->authorize('update', $collection);
+        $validated = $request->validate($this->rules);
+        $collection->update($request->all());
+
+        return redirect('/collections');
     }
 
     /**
@@ -92,6 +104,8 @@ class CollectionController extends Controller
      */
     public function destroy(Collection $collection)
     {
-        //
+        $collection->delete();
+
+        return redirect('/collections');
     }
 }

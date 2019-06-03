@@ -14,8 +14,13 @@
             <td>
                 <a href="{{action('CollectionController@show', ['id' => $collection->id])}}">{{ $collection->name }}</a>
             </td>
+            <td>
+                <a class="btn btn-primary" href="{{action('CollectionController@edit', ['id' => $collection->id])}}"
+                    role="button">Editar</a>
+            </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+<a class="btn btn-primary" href="{{action('CollectionController@create')}}" role="button">Añadir colección</a>
 @endsection
