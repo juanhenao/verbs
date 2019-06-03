@@ -26,7 +26,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/words/create">Nueva</a>
+                    <a class="nav-link" href="/collections">Colecciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/words">Palabras</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/words/create">Nueva Palabra</a>
                 </li>
             </ul>
 
