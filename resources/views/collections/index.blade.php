@@ -1,11 +1,11 @@
 @extends('layout')
 
 @section('content')
-<h1>Mis colecciones</h1>
+<h1>@lang('My Collections')</h1>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th scope="col" colspan="2">Colección</th>
+            <th scope="col" colspan="2">@lang('Collection')</th>
         </tr>
     </thead>
     <tbody>
@@ -16,11 +16,11 @@
             </td>
             <td>
                 <a class="btn btn-primary" href="{{action('CollectionController@edit', ['id' => $collection->id])}}"
-                    role="button">Editar</a>
+                    role="button">@lang('Edit')</a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-<a class="btn btn-primary" href="{{action('CollectionController@create')}}" role="button">Añadir colección</a>
+<a class="btn btn-primary" href="{{action('CollectionController@create')}}" role="button">@lang('Add Collection')</a>
 @endsection

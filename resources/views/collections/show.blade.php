@@ -5,10 +5,10 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th scope="col">Palabra</th>
-            <th scope="col">Traducción</th>
-            <th scope="col">Tipo</th>
-            <th scope="col" colspan="2">Ejemplo</th>
+            <th scope="col">@lang('Word')</th>
+            <th scope="col">@lang('Translation')</th>
+            <th scope="col">@lang('Type')</th>
+            <th scope="col" colspan="2">@lang('Example')</th>
         </tr>
     </thead>
     <tbody>
@@ -28,7 +28,7 @@
             </td>
             <td>
                 <a class="btn btn-primary" href="{{action('WordController@edit', ['id' => $word->id])}}"
-                    role="button">Editar</a>
+                    role="button">@lang('Edit')</a>
             </td>
         </tr>
         @endforeach
@@ -38,11 +38,11 @@
             <tr>
                 <td>
                     <input type="text" class="form-control  {{ $errors->has('word') ? 'is-invalid' : ''}}" name="word"
-                        id="word" placeholder="Ingrese verbo en portugués" value="{{old('word')}}" required>
+                        id="word" placeholder="@lang('Word')" value="{{old('word')}}" required>
                 </td>
                 <td>
                     <input type="text" class="form-control  {{ $errors->has('translation') ? 'is-invalid' : ''}}"
-                        name="translation" id="translation" placeholder="Ingrese la traducción en español"
+                        name="translation" id="translation" placeholder="@lang('Translation')"
                         value="{{old('translation')}}" required>
                 </td>
                 <td>
@@ -56,10 +56,10 @@
                 </td>
                 <td>
                     <textarea class="form-control  {{ $errors->has('example') ? 'is-invalid' : ''}}" name="example"
-                        id="example" placeholder="Aquí puede ingresar un ejemplo" rows="3">{{old('example')}}</textarea>
+                        id="example" placeholder="@lang('Example')" rows="3">{{old('example')}}</textarea>
                 </td>
                 <td>
-                    <button type="submit" class="btn btn-primary">Agregar</button>
+                    <button type="submit" class="btn btn-primary">@lang('Add')</button>
                 </td>
             </tr>
         </form>

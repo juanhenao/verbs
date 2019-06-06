@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Parabola</title>
+    <title>@lang('Parabola')</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">
             <img src="/favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            Parabola
+            @lang('Parabola')
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,13 +26,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/collections">Colecciones</a>
+                    <a class="nav-link" href="/collections">@lang('Collections')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/words">Palabras</a>
+                    <a class="nav-link" href="/words">@lang('Words')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/words/create">Nueva Palabra</a>
+                    <a class="nav-link" href="/words/create">@lang('New Word')</a>
                 </li>
             </ul>
 
@@ -48,7 +48,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            @lang('Logout')
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -58,11 +58,11 @@
                 </li>
                 @else
                 <li class="nav-item">
-                    <a href="{{ route('login') }}" class="nav-link">Login</a>
+                    <a href="{{ route('login') }}" class="nav-link">@lang('Login')</a>
                 </li>
                 <li class="nav-item">
                     @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="nav-link">Register</a>
+                    <a href="{{ route('register') }}" class="nav-link">@lang('Register')</a>
                     @endif
                 </li>
 

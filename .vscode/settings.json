@@ -4,6 +4,6 @@
         ".tpl": "html"
     },
     "emmet.triggerExpansionOnTab": true,
-    "blade.format.enable": true,
+    "blade.format.enable": false,
     "color-highlight.matchWords": true
 }
