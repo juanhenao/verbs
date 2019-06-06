@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        ".blade.php": "html",
-        ".tpl": "html"
-    },
-    "emmet.triggerExpansionOnTab": true,
-    "blade.format.enable": false,
-    "color-highlight.matchWords": true
-}
