@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<h1>Agregar verbo</h1>
+<h1>@lang('Add Word')</h1>
 @if ($errors->any())
 <div class="alert alert-danger" role="alert">
     <ul>
@@ -14,17 +14,17 @@
 <form method="POST" action="{{action('WordController@store')}}">
     @csrf
     <div class="form-group">
-        <label for="word">Verbo</label>
+        <label for="word">@lang('Word')</label>
         <input type="text" class="form-control  {{ $errors->has('word') ? 'is-invalid' : ''}}" name="word" id="word"
-            placeholder="Ingrese verbo en portugués" value="{{old('word')}}" required>
+            placeholder="@lang('Word')" value="{{old('word')}}" required>
     </div>
     <div class="form-group">
-        <label for="translation">Traducción</label>
+        <label for="translation">@lang('Translation')</label>
         <input type="text" class="form-control  {{ $errors->has('translation') ? 'is-invalid' : ''}}" name="translation"
-            id="translation" placeholder="Ingrese la traducción en español" value="{{old('translation')}}" required>
+            id="translation" placeholder="@lang('Translation')" value="{{old('translation')}}" required>
     </div>
     <div class="form-group">
-        <label for="type">Tipo de palabra</label>
+        <label for="type">@lang('Type')</label>
         <select class="form-control" name='type_id' id="type_id">
             @foreach ($types as $type)
             <option value="{{$type->id}}">
@@ -34,7 +34,7 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="collection">Colección</label>
+        <label for="collection">@lang('Collection')</label>
         <select class="form-control" name='collection_id' id="collection_id">
             @foreach ($collections as $collection)
             <option value="{{$collection->id}}">
@@ -44,10 +44,10 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="example">Ejemplo</label>
+        <label for="example">@lang('Example')</label>
         <textarea class="form-control  {{ $errors->has('example') ? 'is-invalid' : ''}}" name="example" id="example"
-            placeholder="Aquí puede ingresar un ejemplo" rows="3">{{old('example')}}</textarea>
+            placeholder="@lang('example')" rows="3">{{old('example')}}</textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Agregar verbo</button>
+    <button type="submit" class="btn btn-primary">@lang('Add Word')</button>
 </form>
 @endsection

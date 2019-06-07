@@ -1,12 +1,12 @@
 @extends('layout')
 
 @section('content')
-<h1>Lista de verbos</h1>
+<h1>@lang('Words')</h1>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th scope="col">Verbo</th>
-            <th scope="col" colspan="2">Traducción</th>
+            <th scope="col">@lang('Word')</th>
+            <th scope="col" colspan="2">@lang('Translation')</th>
         </tr>
     </thead>
     <tbody>
@@ -20,7 +20,7 @@
             </td>
             <td>
                 <a class="btn btn-primary" href="{{action('WordController@edit', ['id' => $word->id])}}"
-                    role="button">Editar</a>
+                    role="button">@lang('Translate')</a>
             </td>
         </tr>
         @endforeach

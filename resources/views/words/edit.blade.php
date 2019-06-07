@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<h1>Editar verbo</h1>
+<h1>@lang('Edit Word')</h1>
 @if ($errors->any())
 <div class="alert alert-danger" role="alert">
     <ul>
@@ -15,17 +15,17 @@
     @csrf
     @method('PATCH')
     <div class="form-group  ">
-        <label for="word">Verbo</label>
+        <label for="word">@lang('Word')</label>
         <input type="text" class="form-control  {{ $errors->has('word') ? 'is-invalid' : ''}}" name="word" id="word"
-            value="{{$word->word}}" placeholder="Ingrese verbo en portugués" required>
+            value="{{$word->word}}" placeholder="@lang('Word')" required>
     </div>
     <div class="form-group">
-        <label for="translation">Traducción</label>
+        <label for="translation">@lang('Translation')</label>
         <input type="text" class="form-control  {{ $errors->has('translation') ? 'is-invalid' : ''}}" name="translation"
-            id="translation" value="{{$word->translation}}" placeholder="Ingrese la traducción en español" required>
+            id="translation" value="{{$word->translation}}" placeholder="@lang('Translation')" required>
     </div>
     <div class="form-group">
-        <label for="type">Tipo de palabra</label>
+        <label for="type">@lang('Type')</label>
         <select class="form-control" name='type_id' id="type_id">
             @foreach ($types as $type)
             <option value="{{$type->id}}" {{$type->id==$word->type_id?'selected':''}}>
@@ -35,7 +35,7 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="collection_id">Colección</label>
+        <label for="collection_id">@lang('Collection')</label>
         <select class="form-control" name='collection_id' id="collection_id">
             @foreach ($collections as $collection)
             <option value="{{$collection->id}}" {{$collection->id==$word->collection_id?'selected':''}}>
@@ -45,15 +45,15 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="example">Ejemplo</label>
+        <label for="example">@lang('Example')</label>
         <textarea class="form-control  {{ $errors->has('example') ? 'is-invalid' : ''}}" name="example" id="example"
-            placeholder="Aquí puede ingresar un ejemplo" rows="3">{{$word->example}}</textarea>
+            placeholder="@lang('Example')" rows="3">{{$word->example}}</textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Actualizar verbo</button>
+    <button type="submit" class="btn btn-primary">@lang('Update')</button>
 </form>
 <form method="POST" action="{{action('WordController@destroy', ['id' => $word->id])}}">
     @csrf
     @method('DELETE')
-    <button type="submit" class="btn btn-primary">Eliminar</button>
+    <button type="submit" class="btn btn-primary">@lang('Delete')</button>
 </form>
 @endsection
