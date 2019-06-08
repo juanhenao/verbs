@@ -21,7 +21,7 @@
     </div>
     <button type="submit" class="btn btn-primary">@lang('Update Collection')</button>
 </form>
-<form method="POST" action="{{action('CollectionController@destroy', ['id' => $collection->id])}}">
+<form method="POST" action="{{action('CollectionController@destroy', ['id' => $collection->id])}}" id="delete_form">
     @csrf
     @method('DELETE')
     <button type="submit" class="btn btn-primary">@lang('Delete')</button>
