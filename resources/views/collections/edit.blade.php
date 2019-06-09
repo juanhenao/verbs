@@ -21,9 +21,12 @@
     </div>
     <button type="submit" class="btn btn-primary">@lang('Update Collection')</button>
 </form>
-<form method="POST" action="{{action('CollectionController@destroy', ['id' => $collection->id])}}" id="delete_form">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn btn-primary">@lang('Delete')</button>
-</form>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">
+    @lang('Delete')
+</button>
+
+@component('modals.delete', ['action'=>'CollectionController@destroy', 'id'=>$collection->id])
+    @lang('Are you sure that you want to delete the collection', ['name'=>$collection->name])
+@endcomponent
+
 @endsection
