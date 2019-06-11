@@ -3,13 +3,11 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class CollectionsTest extends TestCase
 {
-
-    use RefreshDatabase;
+    use DatabaseTransactions;
 
     /** @test */
     public function a_user_can_create_a_collection()
@@ -20,13 +18,9 @@ class CollectionsTest extends TestCase
         $this->actingAs(factory('App\User')->create());
 
         //When they hit the endpoint /words while passing the necessary data
-        $this->post('/collection', $attributes);
+        $this->post('/collections', $attributes);
 
         //Then it should be a new collection in the database
         $this->assertDatabaseHas('collections', $attributes);
-
-        /*$response = $this->get('/');
-
-        $response->assertStatus(200);*/
     }
 }
