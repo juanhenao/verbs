@@ -9,6 +9,14 @@ class CollectionsTest extends TestCase
 {
     use DatabaseTransactions;
 
+
+    /** @test */
+    public function guest_user_may_not_create_collection()
+    {
+
+        $this->post('/collections')->assertRedirect('/login');
+    }
+
     /** @test */
     public function a_user_can_create_a_collection()
     {
