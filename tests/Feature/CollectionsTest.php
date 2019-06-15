@@ -31,4 +31,23 @@ class CollectionsTest extends TestCase
         //Then it should be a new collection in the database
         $this->assertDatabaseHas('collections', $attributes);
     }
+
+    /** @test */
+    public function a_user_can_see_his_collections()
+    {
+
+        $attributes = ['name' => 'Collection of user 1'];
+
+        //Given someone is logged in and create a collection
+        $this->actingAs(factory('App\User')->create());
+        $this->post('/collections', $attributes);
+
+        //When I am logged in
+        $this->actingAs(factory('App\User')->create());
+
+        //I can only see my collection
+        $response = $this->get('/collections');
+
+        $response->assertDontSee($attributes['name']);
+    }
 }
