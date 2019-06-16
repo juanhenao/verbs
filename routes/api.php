@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 
+use App\Collection;
+use App\Http\Resources\Collection as CollectionResource;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,4 +17,8 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/collection', function () {
+    return new CollectionResource(Collection::find(1));
 });
