@@ -4,9 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-use App\Http\Resources\Word as WordResource;
-
-class Collection extends JsonResource
+class Word extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,9 +16,10 @@ class Collection extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'owner' => $this->user_id,
-            'words' => WordResource::collection($this->words),
+            'word' => $this->word,
+            'tanslation' => $this->translation,
+            'type' => $this->type_id,
+            'example' => $this->example,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 

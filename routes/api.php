@@ -19,6 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/collection', function () {
-    return new CollectionResource(Collection::find(1));
+Route::get('/collection/{id}', function ($id) {
+    return new CollectionResource(Collection::find($id));
 });
