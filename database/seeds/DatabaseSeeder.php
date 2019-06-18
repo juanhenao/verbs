@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,9 +16,13 @@ class DatabaseSeeder extends Seeder
             exit('You should not seed production db');
         }
 
+        Model::unguard();
+
         $this->call(TypesTableSeeder::class);
         $this->call(RolesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(WordsTableSeeder::class);
+
+        Model::reguard();
     }
 }

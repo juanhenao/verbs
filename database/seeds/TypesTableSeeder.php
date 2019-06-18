@@ -12,14 +12,20 @@ class TypesTableSeeder extends Seeder
      */
     public function run()
     {
-        Type::create(['description' => 'verb', 'translation' => 'types.verb']);
-        Type::create(['description' => 'noun', 'translation' => 'types.noun']);
-        Type::create(['description' => 'adjective', 'translation' => 'types.adjective']);
-        Type::create(['description' => 'adverb', 'translation' => 'types.adverb']);
-        Type::create(['description' => 'pronoun', 'translation' => 'types.pronoun']);
-        Type::create(['description' => 'preposition', 'translation' => 'types.preposition']);
-        Type::create(['description' => 'conjunction', 'translation' => 'types.conjunction']);
-        Type::create(['description' => 'determiner', 'translation' => 'types.determiner']);
-        Type::create(['description' => 'exclamation', 'translation' => 'types.exclamation']);
+        $types = [
+            ['description' => 'verb', 'translation' => 'types.verb'],
+            ['description' => 'noun', 'translation' => 'types.noun'],
+            ['description' => 'adjective', 'translation' => 'types.adjective'],
+            ['description' => 'adverb', 'translation' => 'types.adverb'],
+            ['description' => 'pronoun', 'translation' => 'types.pronoun'],
+            ['description' => 'preposition', 'translation' => 'types.preposition'],
+            ['description' => 'conjunction', 'translation' => 'types.conjunction'],
+            ['description' => 'determiner', 'translation' => 'types.determiner'],
+            ['description' => 'exclamation', 'translation' => 'types.exclamation']
+        ];
+        $faker = Faker\Factory::create();
+        foreach ($types as $type) {
+            Type::create(array_merge(['id' => $faker->uuid], $type));
+        }
     }
 }

@@ -7,12 +7,14 @@ use App\Word;
 use App\Type;
 
 $factory->define(Word::class, function (Faker $faker) {
-    $typeNumber = Type::count();
+    $types = Type::all();
+    $index = $faker->numberBetween(0, Type::count() - 1);
 
     return [
+        'id' => $faker->uuid,
         'word' => $faker->word,
         'translation' => $faker->word,
-        'type_id' => $faker->numberBetween(1, $typeNumber),
+        'type_id' => $types[$index]['id'],
         'example' => $faker->sentence(5)
     ];
 });

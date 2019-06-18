@@ -14,10 +14,10 @@ class CreateConjugationsTable extends Migration
     public function up()
     {
         Schema::create('conjugations', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('word_id');
+            $table->uuid('id')->primary();
+            $table->uuid('word_id');
             $table->string('word');
-            $table->unsignedBigInteger('pronoun_id');
+            $table->uuid('pronoun_id');
             $table->timestamps();
 
             $table->foreign('word_id')->references('id')->on('words');
