@@ -15,7 +15,7 @@ class WordController extends Controller
     private $rules = [
         'word' => ['required', 'min:2', 'alpha'],
         'translation' => ['required', 'min:2', 'alpha'],
-        'type_id' => ['required', 'integer', 'exists:types,id'],
+        'type_id' => ['required', 'uuid', 'exists:types,id'],
         'collection_id' => ['required'],
         'example' => ['string', 'nullable']
     ];
